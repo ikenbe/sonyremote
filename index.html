@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>A Basic HTML5 Template</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
+  <title>Sony TV remote</title>
+  <meta name="description" content="A simple HTML5 Web App for Controlling Sony TVs on LAN">
+  <meta name="author" content="iKen">
 
-  <meta property="og:title" content="A Basic HTML5 Template">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:title" content="Sony TV remote">
+  <meta property="og:type" content="Web App">
+  <meta property="og:url" content="">
+  <meta property="og:description" content="A simple HTML5 Web App for Controlling Sony TVs on LAN">
   <meta property="og:image" content="image.png">
 
   <link rel="icon" href="/favicon.ico">
@@ -25,6 +25,59 @@
 
 <body>
   <!-- your content here... -->
-  <script src="js/scripts.js"></script>
+  
+<div>
+  TV IP Address:<input type="text" id="ip"></ip>
+  <br/>
+  Pre-shared Key:<input type="text" id="psk"></ip>
+</div>
+<div>
+  Power:
+  <button onclick="power(true)">ON</button>
+  <button onclick="power(false)">OFF</button>
+</div>
+<div>
+  Volume:
+  <button onclick="volume('+1')">+1</button>
+  <button onclick="volume('-1')">-1</button>
+  <button onclick="mute(true)">Mute</button>
+  <button onclick="mute(false)">Unmute</button>
+  <input id="volume" type="text" size="3" value="10"/>
+  <button onclick="volume(document.getElementById('volume').value)">Set</button><small>(0 - 100)</small>
+</div>
+<div>
+  Input:
+  <select id="kind">
+    <option value="hdmi">HDMI</option>
+    <option value="composite">Composite</option>
+    <option value="scart">SCART</option>
+  </select>
+  <select id="port">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <button onclick="extInput()">Go</button>
+</div>
+<div>
+  URL:
+  <input id="url" type="text" size="50"/>
+  <select id="apptype">
+    <option value="url">HTML URL</option>
+    <option value="manifest">Manifest URL</option>
+  </select>
+  <button onclick="app()">Go</button>
+</div>
+<div>
+  App:
+  <button onclick="getWebAppStatus()">Web App Status</button>
+  <button onclick="terminateApps()">Terminate Apps</button>
+</div>
+<div>
+  Result <button onclick="empty()">Clear</button><br/>
+  <textarea id="log" readonly rows="15" cols="80"></textarea>
+</div>
+  <script src="main.js"></script>
 </body>
 </html>
