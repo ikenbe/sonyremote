@@ -19,24 +19,24 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
   <!-- your content here... -->
   
-<div>
+<div id="settings">
   TV IP Address:<input type="text" id="ip"></ip>
   <br/>
   Pre-shared Key:<input type="text" id="psk"></ip>
 </div>
-<div>
+<div class="control">
   Power:
   <button onclick="power(true)">ON</button>
   <button onclick="power(false)">OFF</button>
 </div>
-<div>
+<div  class="control">
   Volume:
   <button onclick="volume('+1')">+1</button>
   <button onclick="volume('-1')">-1</button>
@@ -45,7 +45,7 @@
   <input id="volume" type="text" size="3" value="10"/>
   <button onclick="volume(document.getElementById('volume').value)">Set</button><small>(0 - 100)</small>
 </div>
-<div>
+<div  class="control">
   Input:
   <select id="kind">
     <option value="hdmi">HDMI</option>
@@ -60,7 +60,7 @@
   </select>
   <button onclick="extInput()">Go</button>
 </div>
-<div>
+<div class="control">
   URL:
   <input id="url" type="text" size="50"/>
   <select id="apptype">
