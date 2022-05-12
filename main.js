@@ -1,7 +1,7 @@
 function send(service, method, params) {
   var ip = document.getElementById("ip").value;
   var psk = document.getElementById("psk").value;
-  var proxy = '192.168.1.11:8033'
+  //var proxy = '192.168.1.11:8033'
   var xhr = new XMLHttpRequest();
   xhr.onload = function () {
     var resp = xhr.responseText;
@@ -9,12 +9,12 @@ function send(service, method, params) {
       + '\nstatus: ' + xhr.status
       + '\n' + JSON.stringify(JSON.parse(xhr.response), null, '  '))
   };
-  xhr.open('POST', 'http://' + proxy + '/sony/' + service);
+  xhr.open('POST', 'http://' + ip + '/sony/' + service);
 
   if (psk) {
     xhr.setRequestHeader('X-Auth-PSK', psk);
   }
-  xhr.setRequestHeader('Target-URL',ip)
+  //xhr.setRequestHeader('Target-URL',ip)
   xhr.send(JSON.stringify({
     method: method,
     version: '1.0',
